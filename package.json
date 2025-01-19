@@ -5,10 +5,10 @@
   "homepage": "https://eiran5270.github.io/test/",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export", 
     "start": "next start",
     "lint": "next lint",
-    "deploy": "touch out/.nojekyll && gh-pages -d out --dotfiles",
+    "deploy": "next build && next export && touch out/.nojekyll && git add -f out/ && git commit -m 'deploy to gh-pages' && git subtree push --prefix out origin gh-pages",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "storybook:publish": "pnpm build && touch ./storybook-static/.nojekyll && gh-pages -d ./storybook-static -t true"
